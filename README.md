@@ -58,7 +58,7 @@ Get Flutter Architecture Generator up and running on your local machine in just 
      cd Flutter-Architecture-Generator
     ```
 
-4. Run the script:
+4. Run Dart CLI Tool:
 
      ```bash
      dart flutter_cli_arch.dart
