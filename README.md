@@ -52,7 +52,7 @@ Get Flutter Architecture Generator up and running on your local machine in just 
      git clone https://github.com/MostafaSensei106/Flutter-Architecture-Generator.git
      ```
 
-3. Navigate to the project directory and install dependencies:
+3. Navigate to the project directory:
 
      ```bash
      cd Flutter-Architecture-Generator
