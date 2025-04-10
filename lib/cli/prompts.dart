@@ -24,23 +24,15 @@ String _askPackageName(String name) {
 
 List<String> _askTargetPlatforms() {
   print('Available platforms:');
-  for (var platform in FlutriXConstanst.platformOptions) {
-    print(
-      '${FlutriXConstanst.platformOptions.indexOf(platform) + 1}. $platform',
-    );
+  for (var i = 0; i < FlutriXConstanst.platformOptions.length; i++) {
+    print('${i + 1}. ${FlutriXConstanst.platformOptions[i]}');
   }
-  stdout.write('Enter the number(s) separated by spaces: ');
-  List<String> targetPlatforms =
-      stdin
-          .readLineSync()!
-          .split(' ')
-          .map(
-            (e) =>
-                FlutriXConstanst.platformOptions[int.parse(e) - 1].split(
-                  ' ',
-                )[1],
-          )
-          .toList();
+  stdout.write('Enter the number(s) separated by spaces (Default: 1.All): ');
+  List<String> targetPlatforms = stdin
+      .readLineSync()!
+      .split(' ')
+      .map((e) => FlutriXConstanst.platformOptions[int.parse(e) - 1])
+      .toList();
   print('Selected platforms: ${targetPlatforms.join(', ')}');
   return targetPlatforms;
 }

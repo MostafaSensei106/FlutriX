@@ -14,12 +14,12 @@ class FlutriXConstanst {
   static const String cliLicense = 'MIT';
 
   static const List<String> platformOptions = [
+    'All',
     'Android',
     'iOS',
     'Web',
     'Windows',
     'Linux',
-    'All'
   ];
 
   static const List<String> architectureOptions = [
