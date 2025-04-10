@@ -1,3 +1,6 @@
 class FlutriXConstanst {
-  static const String cliName = ''
+  static const String cliName = 'FlutriX'; 
+
+
+  
 }
