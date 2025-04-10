@@ -4,8 +4,6 @@ import 'package:flutrix/config/constants/flutrix_constanst.dart';
 import 'package:flutrix/models/project_config_model.dart';
 
 Future<AppModel> askAppDetails() async {
-  print('Welcome to Flutrix CLI!');
-  print('====================================');
 
   stdout.write('What is the name of your app? (Default: flutrix) : ');
   String name = stdin.readLineSync() ?? FlutriXConstanst.cliName;
