@@ -3,6 +3,9 @@ description: A sample command-line application with basic argument parsing.
 version: 0.0.1
 # repository: https://github.com/my_org/my_repo
 
+executables:
+  flutter_architecture_cli: bin/flutter_architecture_cli.dart
+
 environment:
   sdk: ^3.7.2
 
