@@ -116,8 +116,8 @@ class Prompts {
     String name = _askName();
     String description = _askDescription();
     String packageName = _askPackageName(name);
-    List<String> targetPlatforms = _askTargetPlatforms();
     String arch = _askTargetArchitecture();
+    List<String> targetPlatforms = _askTargetPlatforms();
     List<String> dependencies = _askDependencies();
     List<String> locales = _askLocales();
     AppModel config = _createAppModel(
