@@ -124,8 +124,8 @@ class Prompts {
       name,
       description,
       packageName,
-      targetPlatforms,
       arch,
+      targetPlatforms,
       locales,
       dependencies,
     );
