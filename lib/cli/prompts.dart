@@ -95,9 +95,10 @@ class Prompts {
     String name,
     String description,
     String packageName,
-    List<String> targetPlatforms,
     String arch,
     List<String> locales,
+    List<String> targetPlatforms,
+
     List<String> dependencies,
   ) {
     return AppModel(
@@ -111,7 +112,7 @@ class Prompts {
     );
   }
 
-   Future<AppModel> askAppDetails() async {
+  Future<AppModel> askAppDetails() async {
     String name = _askName();
     String description = _askDescription();
     String packageName = _askPackageName(name);
