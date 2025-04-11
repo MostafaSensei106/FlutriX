@@ -3,19 +3,20 @@ description: A sample command-line application with basic argument parsing.
 version: 0.0.1
 # repository: https://github.com/my_org/my_repo
 
-
+repository: https://github.com/MostafaSensei106/FlutriX
 license:
   - MIT
 
 executables:
-  flutter_architecture_cli: bin/flutter_architecture_cli.dart
+  flutter_architecture_cli: bin/main.dart
 
 environment:
   sdk: ^3.7.2
 
-# Add regular dependencies here.
 dependencies:
   args: ^2.5.0
+  chalkdart: ^3.0.4
+  interact: ^2.0.0
 
 dev_dependencies:
   lints: ^5.0.0

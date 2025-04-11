@@ -6,7 +6,7 @@ class AppModel {
 
   List<String> targetPlatforms;
   List<String> targetLanguages;
-  List<Map<String, dynamic>> dependencies;
+  List<String> dependencies;
 
   AppModel({
     required this.name,
