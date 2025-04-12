@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutrix/config/constants/flutrix_constanst.dart';
-import 'package:flutrix/models/project_config_model.dart';
+import 'package:flutrix/core/config/constants/flutrix_constanst.dart';
+import 'package:flutrix/models/app_configs_model.dart';
 
 class Prompts {
   String _askName() {
@@ -91,7 +91,7 @@ class Prompts {
     }
   }
 
-  AppModel _createAppModel(
+  AppConfigsModel _createAppModel(
     String name,
     String description,
     String packageName,
@@ -101,7 +101,7 @@ class Prompts {
 
     List<String> dependencies,
   ) {
-    return AppModel(
+    return AppConfigsModel(
       name: name,
       description: description,
       appPakageName: packageName,
@@ -112,7 +112,7 @@ class Prompts {
     );
   }
 
-  Future<AppModel> askAppDetails() async {
+  Future<AppConfigsModel> askAppDetails() async {
     String name = _askName();
     String description = _askDescription();
     String packageName = _askPackageName(name);
@@ -120,7 +120,7 @@ class Prompts {
     List<String> targetPlatforms = _askTargetPlatforms();
     List<String> dependencies = _askDependencies();
     List<String> locales = _askLocales();
-    AppModel config = _createAppModel(
+    AppConfigsModel config = _createAppModel(
       name,
       description,
       packageName,
@@ -132,7 +132,7 @@ class Prompts {
     return config;
   }
 
-  Future<void> saveConfiglToJsonFile(AppModel config) async {
+  Future<void> saveConfiglToJsonFile(AppConfigsModel config) async {
     final now = DateTime.now();
     final formattedNow =
         '${now.month.toString().padLeft(2, '0')}-${now.day.toString().padLeft(2, '0')}_${now.hour.toString().padLeft(2, '0')}-${now.minute.toString().padLeft(2, '0')}${now.isBefore(DateTime(now.year, now.month, now.day, 12)) ? 'AM' : 'PM'}';

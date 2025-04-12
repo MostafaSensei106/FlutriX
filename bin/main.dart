@@ -1,6 +1,6 @@
 
-import 'package:flutrix/cli/prompts.dart';
-import 'package:flutrix/config/constants/flutrix_constanst.dart';
+import 'package:flutrix/core/cli/prompts.dart';
+import 'package:flutrix/core/config/constants/flutrix_constanst.dart';
 
 void main(List<String> arguments) async {
   print('''
