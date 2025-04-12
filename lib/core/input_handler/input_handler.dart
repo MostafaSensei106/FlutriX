@@ -1,48 +1,80 @@
-import 'dart:io';
-
 import 'package:flutrix/core/log/flutrix_logger.dart';
+import 'package:interact_cli/interact_cli.dart';
 
 class InputHandler {
   static String askInput(String question, {String defaultValue = ''}) {
     try {
-      stdout.write('$question (Default: $defaultValue): ');
-      String input = stdin.readLineSync()!;
-      return input.isNotEmpty ? input : defaultValue;
+      return Input(
+        prompt: question,
+        defaultValue: defaultValue,
+        initialText: defaultValue,
+      ).interact();
     } catch (e) {
       FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
       return defaultValue;
     }
   }
 
+  static List<String> askForMultiInput(String question , {String example = ''}) {
+    try {
+      final input = askInput(question, defaultValue: example);
+      return input.split(' ').where((element) => element.isNotEmpty).toList();
+    } catch (e) {
+      FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
+      return [];
+    }
+  }
+
+
+  static Map<String, List<String>> askForMuiltiDependency() {
+    try {
+      final input = askInput('What are your app dependencies? (example: flutter: ^2.0.0 flutter_test: ^2.0.0)');
+      return Map.fromEntries(input
+          .split(' ')
+          .where((element) => element.isNotEmpty)
+          .map((e) {
+            final parts = e.split(':');
+            return MapEntry(parts[0], parts.length > 1 ? parts.skip(1).toList() : []);
+          }));
+    } catch (e) {
+      FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
+      return {};
+    }
+  }
+
   static bool askConfirmation(String question) {
     try {
-      stdout.write('$question (y/n): ');
-      String input = stdin.readLineSync()!.toLowerCase();
-      switch (input) {
-        case 'y':
-          return true;
-        case 'n':
-          return false;
-        default:
-          FlutrixLogger.printLogError('Invalid input. Please enter "y" or "n".');
-          return false;
-      }
+      final result = Confirm(prompt: question).interact();
+      return result;
     } catch (e) {
       FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
       return false;
     }
   }
 
-  static String askForOneInputFromOptions(String question, List<String> options) {
+  static List<String> askForMultiSelect(
+    String question,
+    List<String> options, {
+    String defaultValue = '',
+  }) {
     try {
-      stdout.write('$question (Options: ${options.join(', ')}): ');
-      String input = stdin.readLineSync()!.toLowerCase();
-      if (options.contains(input)) {
-        return input;
-      } else {
-        FlutrixLogger.printLogError('Invalid input. Please enter a valid option.');
-        return '';
-      }
+      final indexes =
+          MultiSelect(prompt: question, options: options).interact();
+      return indexes.map((i) => options[i]).toList();
+    } catch (e) {
+      FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
+      return [];
+    }
+  }
+
+  static String askToSelect(
+    String question,
+    List<String> options,
+  ) {
+    try {
+      final int selection =
+          Select(prompt: question, options: options).interact();
+      return options[selection];
     } catch (e) {
       FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
       return '';
@@ -50,22 +82,4 @@ class InputHandler {
   }
 
 
-  static List<String> askForMoreThanOneInputFromOptions(
-      String question, List<String> options) {
-    try {
-      stdout.write('$question (Options: ${options.join(', ')}): ');
-      String input = stdin.readLineSync()!.toLowerCase();
-      List<String> selected = input.split(' ');
-      if (selected.every((element) => options.contains(element))) {
-        return selected;
-      } else {
-        FlutrixLogger.printLogError('Invalid input. Please enter valid options.');
-        return [];
-      }
-    } catch (e) {
-      FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
-      return [];
-    }
-  }
-  
 }
