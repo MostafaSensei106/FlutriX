@@ -52,20 +52,31 @@ class InputHandler {
     }
   }
 
-  static List<String> askForMultiSelect(
-    String question,
-    List<String> options, {
-    String defaultValue = '',
-  }) {
-    try {
-      final indexes =
-          MultiSelect(prompt: question, options: options).interact();
-      return indexes.map((i) => options[i]).toList();
-    } catch (e) {
-      FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
-      return [];
-    }
-  }
+  // static List<String> askForMultiSelect(
+  //   String question,
+  //   List<String> options, {
+  //   String defaultValue = '',
+  // }) {
+  //   try {
+  //     final indexes = MultiSelect(
+  //       prompt: question,
+  //       options: options,
+  //       allowMultiple: true,
+  //       defaultValue: defaultValue.isNotEmpty
+  //           ? options
+  //               .asMap()
+  //               .entries
+  //               .where((element) => defaultValue.split(' ').contains(element.value))
+  //               .map((e) => e.key)
+  //               .toList()
+  //           : [],
+  //     ).interact();
+  //     return indexes.map((i) => options[i]).toList();
+  //   } catch (e) {
+  //     FlutrixLogger.printLogStackTrace('Failed to read user input: $e');
+  //     return [];
+  //   }
+  // }
 
   static String askToSelect(
     String question,

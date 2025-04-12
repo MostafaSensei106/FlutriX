@@ -25,11 +25,11 @@ class AppDetailsService {
       FlutriXConstanst.architectureOptions,
     );
 
-    final List<String> targetPlatforms =
-        InputHandler.askForMultiSelect(
-          'What is your app target platforms?',
-          FlutriXConstanst.platformOptions,
-        );
+    // final List<String> targetPlatforms =
+    //     InputHandler.askForMultiSelect(
+    //       'What is your app target platforms?',
+    //       FlutriXConstanst.platformOptions,
+    //     );
 
     final Map<String, List<String>> dependencies;
     final bool addDepndencies = InputHandler.askConfirmation('Do you want to add Any dependencies?');
@@ -55,7 +55,7 @@ class AppDetailsService {
       description: description,
       packageName: packageName,
       architecture: architecture,
-      targetPlatforms: targetPlatforms,
+    //  targetPlatforms: targetPlatforms,
       locales: locales,
       dependencies: dependencies,
     );
