@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutrix/core/config/constants/flutrix_constanst.dart';
-import 'package:flutrix/models/app_configs_model.dart';
+import 'package:flutrix/core/models/app_configs_model.dart';
 
 class Prompts {
   String _askName() {
@@ -104,10 +104,10 @@ class Prompts {
     return AppConfigsModel(
       name: name,
       description: description,
-      appPakageName: packageName,
-      arch: arch,
+      pakageName: packageName,
+      architecture: arch,
       targetPlatforms: targetPlatforms,
-      targetLanguages: locales,
+      locales: locales,
       dependencies: dependencies,
     );
   }
