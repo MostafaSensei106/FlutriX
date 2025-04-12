@@ -1,7 +1,6 @@
 name: flutrix
 description: A sample command-line application with basic argument parsing.
 version: 0.0.1
-# repository: https://github.com/my_org/my_repo
 
 repository: https://github.com/MostafaSensei106/FlutriX
 license:
@@ -14,9 +13,10 @@ environment:
   sdk: ^3.7.2
 
 dependencies:
-  args: ^2.5.0
-  chalkdart: ^3.0.4
   interact_cli: ^2.4.0
+  intl: ^0.19.0
+  logger: ^2.5.0
+  path_provider: ^2.1.5
   
 dev_dependencies:
   lints: ^5.0.0

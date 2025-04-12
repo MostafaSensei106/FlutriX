@@ -1,0 +1,20 @@
+{
+    "name": "FlutriX",
+    "description": "A new Flutter project.",
+    "appPakageName": "com.mhsensei.flutrix",
+    "arch": "MVVM",
+    "targetPlatforms": [],
+    "targetLanguages": [
+        "ar"
+    ],
+    "dependencies": {
+        "flutter": [
+            ""
+        ],
+        "^2.0.0": [],
+        "sex": [
+            ""
+        ],
+        "^6.05": []
+    }
+}
